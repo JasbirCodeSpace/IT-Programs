@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUBBLE SORT</title>
+</head>
+<body>
+<center>
+<input type="text" id="element" placeholder="Enter single element here ...">
+<input type="text" id="array" placeholder="Enter whole array here ..." title="separated by ,">
+<br><br><br>
+<input type="button" value="Add" onclick="Add()">
+<input type="button" value="Sort" onclick="Sort()">
+<input type="button" value="Display" onclick="Display()">
+<hr>
+<div id="Display"></div>
+</center>
+
+<script type="text/javascript">
+	var array = new Array();
+    var i=0;
+
+	function Add(){
+
+		var elem = document.getElementById("element").value;
+		var arr = document.getElementById("array").value;
+
+		var regExp = /^ *$/;
+
+		if(regExp.test(elem) && regExp.test(arr)){
+			return;
+		}
+
+		else{
+		 elem = parseInt(document.getElementById("element").value);
+		 arr = document.getElementById("array").value;
+			if(!regExp.test(elem)){
+				array[i++] = elem;
+				document.getElementById("element").value="";
+			}
+
+			if(!regExp.test(arr)){
+				var tempArr = arr.split(',');
+				for(var x=0;x<tempArr.length;x++){
+					array[i++] = (tempArr[x]);
+				}
+
+				document.getElementById("array").value="";
+			}
+
+
+		}
+	}
+
+	function Display(){
+		var str ="";
+      for(var x=0;x<i;x++){
+         str +=array[x]+" , "
+      }
+
+      document.getElementById("Display").innerHTML = str;
+	}
+
+	function Sort(){
+
+		for(var x=0;x<array.length;x++){
+			for(var y=0,stop=array.length-x;y<stop;y++){
+				if(array[y]>array[y+1]){
+					var temp = array[y];
+					array[y] = array[y+1];
+					array[y+1] = temp;
+				}
+			}
+		}
+	}
+</script>
+</body>
+</html>

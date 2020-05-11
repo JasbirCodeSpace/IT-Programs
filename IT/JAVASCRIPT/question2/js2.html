@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Registration</title>
+	<style type="text/css">
+		input[type=number]::-webkit-inner-spin-button{
+			-webkit-appearance:none;
+		}
+	</style>
+    <script type="text/javascript">
+    	function validate(){
+    		var uname = document.forms[0].elements[0].value;
+    		var upswrd = document.forms[0].elements[1].value;
+            
+            var regExp = /^ *$/g;
+            var regName =/^jasbir$/;
+            var regPswrd = /^1223$/;
+
+    		if(regExp.test(uname) || regExp.test(upswrd)){
+    			alert("All fields are mandatory to fill");
+    		}
+
+    		else{
+    			if(regName.test(uname) && regPswrd.test(upswrd)){
+    				alert("User Validated :)");
+    			}
+
+    			 if(regName.test(uname) == false){
+    				alert("User name is incorrect :(");
+    			}
+
+    			if(regPswrd.test(upswrd) == false){
+    				alert("User password is incorrect :(");
+    			}
+
+    		}
+    	}
+    </script>
+</head>
+<body>
+<center>
+<form method="GET" action="#" name="form1">
+	<br><br>
+	 Name : <input type="text" name="uname" >
+	<br><br>
+	Password : <input type="password" name="upswrd" >
+	<br><br>
+
+    <input type="submit" name="submit" value="Login" onclick="validate()">
+</form>

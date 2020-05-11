@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TIME OUT | TIME INTERVAL</title>
+</head>
+<body onload="Load()">
+<center>	
+<h1 id="text">JASBIR</h1>	
+<input type="button" onclick="timeOut()" value="setTimeOut">
+<br><br><br>
+<hr>
+
+</center>
+<img src="image.jpeg" width="300px" height="200px" id="image">
+
+<script type="text/javascript">
+  		var count=0;
+		var sign =1;
+
+	function Load(){
+		setInterval(moveRight,100);
+	}
+
+	function moveRight(){
+
+
+		if((count+document.getElementById("image").width) >= screen.width || count<0){
+			sign = sign*-1;
+		}
+
+		count+=sign*10;
+		document.getElementById("image").style.marginLeft = ""+count+"px";
+	}
+
+	function timeOut(){
+        setTimeout(function(){document.getElementById("text").style.color = "red";},1000);
+	}
+
+</script>
+</body>
+</html>

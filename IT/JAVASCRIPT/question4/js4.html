@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUBBLE SORT</title>
+</head>
+<body>
+<center>
+<input type="text" id="element" placeholder="Enter single element here ...">
+<br><br><br>
+<input type="button" value="Push" onclick="Push()">
+<input type="button" value="Pop" onclick="Pop()">
+<input type="button" value="Display" onclick="Display()">
+<hr>
+<h1 id="Display"></h1>
+</center>
+
+<script type="text/javascript">
+	var stack = new Array();
+    var top = 0;
+
+	function Push(){
+       var regExp = /^ *$/;
+       var elem = document.getElementById("element").value;
+
+       if(regExp.test(elem)){
+       	alert("Please enter element inside input field before push :)");
+       	document.getElementById("element").focus();
+       	return;
+       }
+
+       else{
+       	
+       	stack.push(document.getElementById("element").value);
+       	var temp = stack[stack.length-1];
+
+       	document.getElementById("Display").innerHTML = "PUSHED : "+temp;
+
+       	return;
+       }
+	}
+
+	function Pop(){
+     if(stack.length<=0){
+     	alert("Error : Stack underflow :(");
+     	return;
+     }
+     else{
+        var elem = stack.pop();
+        alert("POPPED : "+elem)
+        document.getElementById("Display").innerHTML = "POPPED : "+elem;
+
+        return;
+     }
+	}
+
+	function Display(){
+		document.getElementById("Display").innerHTML="Stack : "+stack;
+
+		return;
+	}
+</script>
+</body>
+</html>

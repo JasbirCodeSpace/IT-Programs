@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>USER DETAILS</title>
+</head>
+<body>
+<form name="survey" action="#">
+	First Name    :<input type="text"><br><br>
+	Last Name     :<input type="text"><br><br>
+	Email Address :<input type="text"><br><br>
+	Address       :<input type="text"><br><br>
+	City :<input type="text"><br><br>
+	State :<input type="text">&nbsp;&nbsp;&nbsp;Country :<input type="text">&nbsp;&nbsp;&nbsp;Pin Code :<input type="text">
+	<br><br>
+	Please choose the most appropriate option:<br>
+	<input type="radio" name="purchase">I regularly purchase items online<br>
+	<input type="radio" name="purchase">I purchase only on an occasion<br>
+	<input type="radio" name="purchase">I have not purchase anything online, but I would consider it<br>
+	<input type="radio" name="purchase">I prefer to shop in real stores<br>
+
+	I'm interested in(choose all that apply)<br>
+	<input type="checkbox" name="checkboxes[]">Hiking<br>
+	<input type="checkbox" name="checkboxes[]">Mountain Biking<br>
+	<input type="checkbox" name="checkboxes[]">Camping<br>
+	<input type="checkbox" name="checkboxes[]">Rock Climbing<br>
+	<input type="checkbox" name="checkboxes[]">Off-Road 4WD<br>
+	<input type="checkbox" name="checkboxes[]">Cross-country Skiing<br>
+	<br>
+
+	I learned about this site from:
+<select>
+  <option value="From social media">From social media</option>
+  <option value="From friends">From friends</option>
+  <option value="From college">From college</option>
+  <option value="Others">Others</option>
+
+</select><br><br>
+
+Comment:<br>
+<textarea id="comment" style="width:400px; height:90px;"></textarea>
+<input type="submit" name="submit" value="Submit" onclick="validate()">
+
+</form>
+
+<script type="text/javascript">
+	function validate(){
+		var input = true;
+		var checkbox = false;
+		var radio = false;
+		var comment = false;
+
+        var regExp = /^ *$/;
+		for(var i =0;i<8;i++){
+			if(regExp.test(document.forms[0].elements[i].value)){
+				input = true;
+			}
+		}
+        
+        for(var i =8;i<12;i++){
+        	if(document.forms[0].elements[i].checked == true)
+        		radio=true;
+
+        }
+
+        for(var i =12;i<18;i++){
+        	if(document.forms[0].elements[i].checked == true)
+        		checkbox=true;
+
+        }
+
+        if(regExp.test(document.forms[0].elements[19].value)==false){
+           comment = true;
+        }
+
+        if(input && checkbox && radio && comment){
+        	alert("successfully registered");
+        	document.getElementById("survey").reset();
+        }
+        else{
+        	alert("All fields are mandatory to fill");
+        }
+	}
+</script>
+</body>
+</html>

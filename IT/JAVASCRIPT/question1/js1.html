@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Registration</title>
+	<style type="text/css">
+		input[type=number]::-webkit-inner-spin-button{
+			-webkit-appearance:none;
+		}
+	</style>
+
+</head>
+<body>
+<center>
+<form method="GET" action="#" name="form1">
+	<br><br>
+	Student Name : <input type="text" name="sname" >
+	<br><br>
+	Student Roll No :<input type="number" name="sroll">
+	<br><br>
+	Student DOB :<input type="date" name="sbdate">
+    <br><br>
+    <input type="submit" name="submit" value="Register" onclick="validate()">
+</form>
+</center>
+
+	<script type="text/javascript" >
+	 function validate(){	
+		var name = document.forms[0].elements[0].value;
+		var rollNo = document.forms[0].elements[1].value;
+		var dob = document.forms[0].elements[2].value;
+
+		var regSpace = /^ *$/g;
+		var regName = /^[a-zA-Z]{1,}$/g;
+		var regRoll = /^[0-9]{7}$/g;
+
+        if(regSpace.test(name) || rollNo==NaN || dob==null){
+        	alert("All fields are mandatory to fill");
+        }
+
+     
+      else{
+		if(regName.test(name)){
+			document.write("Student name is valid :"+name);
+			document.write("<br>");
+
+		}
+		else{
+			document.write("\nStudent name is invalid");
+			document.write("<br>");
+		}
+		if(regRoll.test(rollNo)){
+			document.write("\nStudent Roll Number is valid :"+rollNo);
+			document.write("<br>");
+		}
+		else{
+			document.write("\nStudent roll no. is invalid :: Must be of 7 digits");
+			document.write("<br>");
+		}
+		if(dob!=null && dob!=""){
+			var d = new Date(dob);
+			var day = d.getDay();
+			var date = d.getDate();
+			var month = d.getMonth();
+			var year = d.getYear();
+
+			var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+			var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+			document.write("Student DOB is valid : "+days[day]+" , "+months[month]+" "+(date)+" , "+(2000+year-100));
+			document.write("<br>");
+		}
+		else{
+			document.write("Student DOB is invalid :"+dob);
+			document.write("<br>");
+		}
+	}
+
+	}
+	</script>
+</body>
+</html>
