@@ -1,0 +1,85 @@
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.0</jsp-version>
+
+  <short-name>Custom Tag</short-name>
+  <uri>tlds/customTag.tld</uri>
+
+  <tag>
+   <name>hello</name>
+   <tag-class>user.MyTagHandler</tag-class>
+   <body-content>empty</body-content>
+
+      <attribute>
+      <name>name</name>
+      <required>true</required>
+      <type>java.util.String</type>
+      <fragment>false</fragment>
+   </attribute>
+  </tag>
+
+  <tag>
+     <name>choco</name>
+     <tag-class>user.ChocoHandler</tag-class>
+     <body-content>empty</body-content>
+
+     <attribute>
+     	<name>texture</name>
+     	<required>true</required>
+     	<type>java.util.String</type>
+     	<fragment>false</fragment>
+     </attribute>
+  </tag>
+
+  <tag>
+  	<name>substring</name>
+  	<tag-class>user.Substring</tag-class>
+  	<body-content>empty</body-content>
+
+  	<attribute>
+  		<name>input</name>
+  		<required>true</required>
+  		<type>java.util.String</type>
+  		<rtexprvalue>true</rtexprvalue>
+  		<fragment>false</fragment>
+  	</attribute>
+
+  	<attribute>
+  		<name>start</name>
+  		<required>true</required>
+  		<type>java.util.Integer</type>
+  		<rtexprvalue>true</rtexprvalue>
+  		<fragment>false</fragment>
+  	</attribute>
+
+  	<attribute>
+  		<name>end</name>
+  		<required>true</required>
+  		<type>java.util.Integer</type>
+  		<rtexprvalue>true</rtexprvalue>
+  		<fragment>false</fragment>
+  	</attribute>
+  </tag>	
+
+  <tag>
+  	<name>reverse</name>
+  	<tag-class>user.Reverse</tag-class>
+  	<body-content>empty</body-content>
+
+  	<attribute>
+  		<name>input</name>
+  		<required>true</required>
+  		<type>java.util.String</type>
+  		<rtexprvalue>true</rtexprvalue>
+  		<fragment>false</fragment>
+  	</attribute>
+  </tag>
+
+  <tag>
+  	<name>today</name>
+  	<tag-class>user.Today</tag-class>
+  	<body-content>empty</body-content>
+
+  </tag>
+
+</taglib>	
